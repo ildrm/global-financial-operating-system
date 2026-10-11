@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "synthetic_mode": true,
+  "providers": [
+    {"capability":"OIDC","technical_status":"implemented_unverified","availability":"not_configured","license_or_approval":"provider setup and provisioned identity needed","next_action":"configure an approved development provider; verify discovery/PKCE/state/nonce/expiry/revocation and fail-closed cases"},
+    {"capability":"banking/imports","technical_status":"specified","availability":"unavailable","license_or_approval":"not assessed","next_action":"implement manual import quarantine/normalization/dedup/reconciliation before live connectors"},
+    {"capability":"market/CPI/FX/PPP","technical_status":"specified","availability":"unavailable","license_or_approval":"no licensed dataset or selected provider","next_action":"define data vintage/source/unit/license contracts"},
+    {"capability":"object storage/documents","technical_status":"infrastructure_configured_unverified","availability":"upload unavailable","license_or_approval":"optional Garage development profile only","next_action":"verify storage startup and complete quarantine/scanning/authorization/evidence pipeline"},
+    {"capability":"country tax/payroll/benefits","technical_status":"specified","availability":"all jurisdictions unavailable","license_or_approval":"no qualified review or activated packs","next_action":"implement governance/manual modes; choose actual reviewed markets before activation"},
+    {"capability":"AI/forecast/external financial actions","technical_status":"specified","availability":"unavailable","license_or_approval":"no provider or connector authorized","next_action":"isolate scenarios/evaluations; do not infer authorization to pay, trade or send messages"}
+  ],
+  "locales": {
+    "en":"development slice; full terminology/export/error coverage incomplete",
+    "fa":"development draft with RTL/digit tests; professional terminology review pending",
+    "tr":"unavailable","fr":"unavailable","hi":"unavailable","zh-Hans":"unavailable","zh-Hant":"unavailable","ja":"unavailable","es":"unavailable","pt-BR":"unavailable","pt-PT":"unavailable","de":"unavailable","hy":"unavailable","ar":"unavailable"
+  },
+  "country_coverage":"No country pack is verified or legally activated.",
+  "currencies":{"available_subset":["EUR","USD","GBP","TRY","INR","IRR","JPY","BHD"],"official_complete_registry":false,"fx_conversion":false},
+  "refresh_policy":"Manual financial entries are authoritative only for the entered book; no provider freshness claim is made."
+}

@@ -1,0 +1,1 @@
+{"name":"@gfos/web","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"next dev --hostname 127.0.0.1","build":"next build","typecheck":"tsc --noEmit","start":"next start --hostname 0.0.0.0"},"dependencies":{"@gfos/contracts":"workspace:*","@gfos/localization":"workspace:*","@gfos/financial-math":"workspace:*"}}

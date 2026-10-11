@@ -1,0 +1,45 @@
+{
+  "startedAt": "2026-10-11T07:49:35.173Z",
+  "finishedAt": "2026-10-11T07:50:58.222Z",
+  "nodeVersion": "v26.5.0",
+  "platform": "darwin",
+  "classification": "development kernel checks only; full GFOS release gate is separate",
+  "passed": true,
+  "checks": [
+    {
+      "command": "pnpm verify",
+      "exitCode": 0,
+      "durationMs": 11758
+    },
+    {
+      "command": "pnpm exec tsc --noEmit -p tsconfig.json",
+      "exitCode": 0,
+      "durationMs": 1978
+    },
+    {
+      "command": "pnpm test:db",
+      "exitCode": 0,
+      "durationMs": 1785
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0,
+      "durationMs": 11436
+    },
+    {
+      "command": "pnpm security:client-secrets",
+      "exitCode": 0,
+      "durationMs": 447
+    },
+    {
+      "command": "pnpm test:restore",
+      "exitCode": 0,
+      "durationMs": 3217
+    },
+    {
+      "command": "pnpm test:e2e",
+      "exitCode": 0,
+      "durationMs": 52310
+    }
+  ]
+}

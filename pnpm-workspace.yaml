@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+  - modules/*
+allowBuilds:
+  '@scarf/scarf': false
+  '@nestjs/core': false
+  esbuild: true
+  sharp: true

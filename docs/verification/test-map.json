@@ -1,0 +1,132 @@
+{
+  "UNIT-01": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "keeps exact fiat scales and rejects precision, exponent, and overflow",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "UNIT-02": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "matches the source price and real-growth vectors",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "UNIT-03": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "allocates residual minor units deterministically",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "UNIT-04": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "conserves journals and refuses wrong account semantics",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "UNIT-05": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "round-trips Persian digits and keeps large display values exact",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "UNIT-06": {
+    "path": "tests/unit/financial.test.ts",
+    "title": "rejects invalid dates, unexpected fields, and numeric money",
+    "evidence": "docs/verification/unit-results.json"
+  },
+  "DB-01": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "uses a non-owner runtime without BYPASSRLS",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-02": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "denies missing context and cross-book access",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-03": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "posts salary once under concurrent retries and rejects changed payloads",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-04": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "separates borrowing, card purchases and card settlement",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-05": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "conserves cash on own transfers",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-06": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "records reversals without editing originals and preserves issued snapshots",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-07": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "rejects mutation, late lines, unbalanced journals, and excess precision at the database",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-08": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "protects closed periods and event uniqueness across keys",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-09": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "drains the outbox exactly once per consumer and safely replays delivery",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-10": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "verifies audit sequence and chain hashes",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-11": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "privately freezes account/reversal drafts and recovers committed receipts",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "DB-12": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "limits worker database access to event delivery metadata",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "E2E-01": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "desktop reference balances, evidence, exports, and accessibility",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "E2E-02": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "account setup, keyboard review/post, refresh and reversal",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "E2E-03": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "mobile Persian layout and localized digits preserve canonical dates",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "E2E-04": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "an interrupted posting response resumes the same operation after refresh",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "E2E-05": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "web mutation denies a foreign origin and API requires authentication",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "E2E-06": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "account draft and reversal receipts recover across refresh without repeating effects",
+    "evidence": "docs/verification/e2e-results.json"
+  },
+  "DB-13": {
+    "path": "tests/integration/kernel.test.ts",
+    "title": "keeps large calculated balances readable beyond the individual input bound",
+    "evidence": "docs/verification/database-results.json"
+  },
+  "E2E-07": {
+    "path": "tests/e2e/finance.spec.ts",
+    "title": "a controlled large-balance display preserves exact digits without page overflow",
+    "evidence": "docs/verification/e2e-results.json"
+  }
+}

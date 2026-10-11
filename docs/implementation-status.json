@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-11T07:03:54.956617+00:00",
+  "release_classification": "verified_development_kernel_slice",
+  "stages_complete": [],
+  "source_counts": {
+    "explicit_requirements": 273,
+    "reports": 122,
+    "invariants": 18,
+    "derived_blocks": 806,
+    "roles": 42,
+    "scenario_families": 64,
+    "sections": {
+      "product": 48,
+      "architecture": 44,
+      "execution": 15
+    }
+  },
+  "requirement_lifecycle_counts": {
+    "specified": 1185,
+    "designed": 34
+  },
+  "tested_bounded_child_obligations": 34,
+  "full_source_requirements_accepted": 0,
+  "full_report_definitions_accepted": 0,
+  "foundation_reports_enabled": [
+    "R-D01",
+    "R-D02"
+  ],
+  "scenario_families_partially_exercised": 8,
+  "locales_enabled": [
+    "en",
+    "fa"
+  ],
+  "other_required_locales_pending": true,
+  "coverage_path": "docs/providers-and-coverage/status.json",
+  "semantic_decomposition_pending_blocks": 806,
+  "independent_professional_review": "not performed",
+  "full_release_gate": "must fail until original/derived/report/scenario/locale contracts are accepted",
+  "next_task": "purchase/credit/refund domain slice after semantic decomposition and contract review"
+}

@@ -1,0 +1,1357 @@
+[
+  {
+    "scenario_id": "SCN-001",
+    "journey": "New individual onboarding",
+    "required_outcome": "Set locale, entity, accounts/date/opening balances; resume after refresh; visible unreconciled status and correct opening journal.",
+    "source_line": 627,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "E2E-02",
+      "E2E-06"
+    ],
+    "evidence_paths": [
+      "docs/verification/e2e-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-002",
+    "journey": "Security enrollment/recovery",
+    "required_outcome": "Enroll passkey/MFA, review/revoke sessions, recover with policy; audit events and no bypass via direct URL.",
+    "source_line": 628,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-003",
+    "journey": "Multiple-workspace user",
+    "required_outcome": "Switch personal/household/employer context; reset caches/filters correctly; no cross-context data leak.",
+    "source_line": 629,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-02"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-004",
+    "journey": "Household invitation",
+    "required_outcome": "Invite, accept, expire, revoke; preview exact shared scope; no implicit ownership or private-bank access.",
+    "source_line": 630,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-005",
+    "journey": "Adviser delegation",
+    "required_outcome": "Grant narrow time-limited view/export; expiry/revocation affects searches, queued reports and document downloads.",
+    "source_line": 631,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-006",
+    "journey": "Simple income",
+    "required_outcome": "Record net salary; reconcile bank; a repeated submit creates one receipt/income recognition.",
+    "source_line": 632,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-03",
+      "E2E-02",
+      "E2E-04"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json",
+      "docs/verification/e2e-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-007",
+    "journey": "Gross-to-net salary",
+    "required_outcome": "Record gross, withholdings, reimbursements, receivable and net receipt; reconcile bridge without repeat income.",
+    "source_line": 633,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-008",
+    "journey": "Freelancer invoice",
+    "required_outcome": "Milestone/partial receipt, credit note, overdue/dispute/write-off; outstanding and cash/accrual views correct.",
+    "source_line": 634,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-009",
+    "journey": "Own-account transfer",
+    "required_outcome": "Match both legs, cash withdrawal/deposit and fees; totals conserve value before fee/FX, no false income.",
+    "source_line": 635,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-05"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-010",
+    "journey": "Multi-currency exchange",
+    "required_outcome": "Show bid/ask/executed rate/spread/fee; preserve original denomination and realized effects.",
+    "source_line": 636,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-011",
+    "journey": "Missing/stale FX",
+    "required_outcome": "Show last known or unavailable under chosen policy; user supplies reviewed manual rate; no hidden 1:1 conversion.",
+    "source_line": 637,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-012",
+    "journey": "Quick expense",
+    "required_outcome": "Minimal fields, valid localized amount, preview/post and receipt; refresh retains posted fact.",
+    "source_line": 638,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-013",
+    "journey": "Itemized grocery receipt",
+    "required_outcome": "Five lines and multiple units/categories; exact totals, beneficiary allocations and correct spending/budget views.",
+    "source_line": 639,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-014",
+    "journey": "Split tender / deferred balance",
+    "required_outcome": "Cash/card/store credit plus outstanding; no duplicate expense; authorized payments reduce payable.",
+    "source_line": 640,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-015",
+    "journey": "OCR low confidence",
+    "required_outcome": "Inspect source, correct quantity/tax/currency, resolve mismatch, confirm draft; extracted text cannot trigger posting.",
+    "source_line": 641,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-016",
+    "journey": "Discounts / multi-buy",
+    "required_outcome": "Coupons, free item, inclusive/exclusive tax, tips/delivery; deterministic discount/tax allocation reconciles.",
+    "source_line": 642,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-017",
+    "journey": "Purchase refund / exchange",
+    "required_outcome": "Partial cross-period return, exchange difference, card refund; original remains, net spend/basis correct.",
+    "source_line": 643,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-018",
+    "journey": "Chargeback / cancellation",
+    "required_outcome": "Pending dispute, temporary credit, outcome; status and recognition stay distinct with evidence.",
+    "source_line": 644,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-019",
+    "journey": "Product/package substitution",
+    "required_outcome": "Compare 500g/400g and quality changes; normalized price, shrinkflation and comparability warnings.",
+    "source_line": 645,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-020",
+    "journey": "Inventory and shopping",
+    "required_outcome": "Acquire/use/waste/return stock; expiry/reorder/list; quantity conservation and no repeat expense.",
+    "source_line": 646,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-021",
+    "journey": "Dynamic categories",
+    "required_outcome": "Add/archive/schema-version/reclassify with preview; old mapping and reports remain reproducible.",
+    "source_line": 647,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-022",
+    "journey": "Rent and deposit",
+    "required_outcome": "Deposit asset, rent due/paid, index increase, move-out refund/forfeit; correct timing/classification.",
+    "source_line": 648,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-023",
+    "journey": "Landlord / property owner",
+    "required_outcome": "Arrears, partial rent, maintenance versus improvement, vacancy/yield and mortgage; coherent financial views.",
+    "source_line": 649,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-024",
+    "journey": "Tiered electricity",
+    "required_outcome": "Read meter, inspect tier/fixed/tax/subsidy trace, compare invoice, record partial/full payment.",
+    "source_line": 650,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-025",
+    "journey": "Utility mid-period revision",
+    "required_outcome": "Split tariff or require review for missing interval data; preserve old estimate/version and discrepancy.",
+    "source_line": 651,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-026",
+    "journey": "Meter / time-of-use edge",
+    "required_outcome": "Estimated readings, replacement/rollover, registers, DST intervals, demand and feed-in handled by stated method.",
+    "source_line": 652,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-027",
+    "journey": "Water / gas / telecom",
+    "required_outcome": "Validate dimensions/calorific factor, sewer/fixed charges, plan overage/device installments and renewal.",
+    "source_line": 653,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-028",
+    "journey": "Vehicle costs",
+    "required_outcome": "Enter fill/charge/distance/service/parking/trip/reimbursement; cost per distance and no incompatible-unit comparison.",
+    "source_line": 654,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-029",
+    "journey": "Dependents and education",
+    "required_outcome": "Tuition installments, school transport, childcare, scholarships, age-stage change and shared contributions.",
+    "source_line": 655,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-030",
+    "journey": "Baby consumables",
+    "required_outcome": "Track diaper/formula units/packages/use/waste; cost forecasts explicitly economic, not feeding advice.",
+    "source_line": 656,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-031",
+    "journey": "Healthcare partial settlement",
+    "required_outcome": "Invoice/insurer adjustment/payment, patient responsibility, pending reimbursement and remaining balance distinct.",
+    "source_line": 657,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-032",
+    "journey": "Insurance renewal / claim",
+    "required_outcome": "Premium due/paid, claim pending/approved/settled, deductible period and restricted documents.",
+    "source_line": 658,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-033",
+    "journey": "Travel and relocation",
+    "required_outcome": "Trip budget, mixed currencies, deposits/cancellation/refund and reimbursement; location/source FX evident.",
+    "source_line": 659,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-034",
+    "journey": "Charity and family support",
+    "required_outcome": "Pledge versus donation/remittance, NGO receipt, recurring support, manual/verified deduction status.",
+    "source_line": 660,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-035",
+    "journey": "Budget and reserves",
+    "required_outcome": "Rollover/overspend/committed versus actual; inflation proposal needs acceptance; no duplicate cash reservation.",
+    "source_line": 661,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-036",
+    "journey": "Goal revision",
+    "required_outcome": "Contributions/withdrawals, target/date/inflation change and competing goals; explain funding shortfall.",
+    "source_line": 662,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-037",
+    "journey": "Recurrence and reminders",
+    "required_outcome": "Month-end/leap/DST/holiday schedules, pause/skip/snooze and notification failure; no false paid state.",
+    "source_line": 663,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-038",
+    "journey": "Subscription lifecycle",
+    "required_outcome": "Trial expiry, price rise, cancellation window, duplicate suggestion and refund; calendars/forecasts update.",
+    "source_line": 664,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-039",
+    "journey": "Borrowed loan",
+    "required_outcome": "Disbursement increases cash/liability; show terms/schedule and zero income from borrowing.",
+    "source_line": 665,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-040",
+    "journey": "Loan partial/late payment",
+    "required_outcome": "Preview/apply contractual principal/interest/fees allocation; exactly one journal and clear remaining due.",
+    "source_line": 666,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-041",
+    "journey": "Rate reset / prepayment",
+    "required_outcome": "Recast/term reduction, overpayment, deferment/refinance; preserve paid history and show comparison assumptions.",
+    "source_line": 667,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-042",
+    "journey": "Credit card cycle",
+    "required_outcome": "Purchase then payment, statement/interest/grace/minimum/refund; spending counted once.",
+    "source_line": 668,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-04"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-043",
+    "journey": "User as lender / co-borrower",
+    "required_outcome": "Loan receivable, interest receipt, guarantees and assigned debt responsibility; correct owner views.",
+    "source_line": 669,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-044",
+    "journey": "Asset acquisition/valuation/disposal",
+    "required_outcome": "Buy/gift/inherit, update appraisal, liens, partial disposal; no duplicate asset or cash profit from revaluation.",
+    "source_line": 670,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-045",
+    "journey": "Securities and corporate action",
+    "required_outcome": "Trade/settlement, fee/lots, dividend/split/spinoff, sale; basis/quantity/cash/returns reconcile.",
+    "source_line": 671,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-046",
+    "journey": "Metals and illiquid assets",
+    "required_outcome": "Weight/purity/dealer bid/appraisal/staleness; melt and collectible values distinct.",
+    "source_line": 672,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-047",
+    "journey": "Crypto self-transfer / bridge",
+    "required_outcome": "Network/token/fee/confirmation/reorg; positions reconcile and no invented income/global tax rule.",
+    "source_line": 673,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-048",
+    "journey": "Crypto rewards / missing basis",
+    "required_outcome": "Staking/swap/DeFi event, depeg, absent price/lot; explicit quality and scoped classification.",
+    "source_line": 674,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-049",
+    "journey": "Shared contributions and split expenses",
+    "required_outcome": "Unequal contributions, fixed legal shares, private funding, settlements and maker/checker review.",
+    "source_line": 675,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-050",
+    "journey": "Ownership amendment / dissolution",
+    "required_outcome": "Approve dated share change, distribute gains/loss/debt, exit statement and dispute; membership does not amend rights.",
+    "source_line": 676,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-051",
+    "journey": "Consolidated personal/shared view",
+    "required_outcome": "Eliminate internal flows/duplicate interests, allocate debt, show authorized full/attributed totals and evidence.",
+    "source_line": 677,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-052",
+    "journey": "Payroll run",
+    "required_outcome": "Timesheet/leave/bonus, gross-to-net, review/approve/finalize/liability/settlement and own-payslip access.",
+    "source_line": 678,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-053",
+    "journey": "Payroll frequency/correction",
+    "required_outcome": "Weekly-to-monthly boundary, off-cycle/retroactive pay, rerun/reversal; no missing/duplicate day or edited finalized payslip.",
+    "source_line": 679,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-054",
+    "journey": "Multi-jurisdiction tax/benefits",
+    "required_outcome": "Residence/source dates, credits/treaty ambiguity, estimated/assessed/paid and eligible/approved/received distinctions.",
+    "source_line": 680,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-055",
+    "journey": "Rule publication/revision",
+    "required_outcome": "Source/test/human-review gate, effective cutoff, expiry/withdrawal and impacted estimate diff; snapshots preserved.",
+    "source_line": 681,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-056",
+    "journey": "Official/personal inflation",
+    "required_outcome": "Basket mapping/weights/missing items, price/quantity and nominal/real; never label reduced quantity as deflation.",
+    "source_line": 682,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-057",
+    "journey": "Economic series revision/outage",
+    "required_outcome": "Choose as-known/latest vintage, compare rebasing/revisions; preserve report, stale source visibly labeled.",
+    "source_line": 683,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-058",
+    "journey": "Forecast and stress comparison",
+    "required_outcome": "Jobs/dependents/rent/medical/FX/rate shocks; version baseline/assumptions, compare drivers, no actual journals.",
+    "source_line": 684,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-059",
+    "journey": "Reporting full lifecycle",
+    "required_outcome": "Filter, generate/cancel/retry, chart/table, explain/drill, save/share/schedule, CSV/XLSX/PDF same snapshot.",
+    "source_line": 685,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-06",
+      "E2E-01"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json",
+      "docs/verification/e2e-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-060",
+    "journey": "Restricted aggregate/export",
+    "required_outcome": "Shared report omits private payroll/health/bank evidence; permission revoked while queued/download attempted.",
+    "source_line": 686,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-061",
+    "journey": "Import and reconciliation",
+    "required_outcome": "Reimport/interrupt/replay, pending-to-cleared, repeated equal amounts, split matches; one fact and visible exceptions.",
+    "source_line": 687,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  },
+  {
+    "scenario_id": "SCN-062",
+    "journey": "Correct/close/reopen/restore",
+    "required_outcome": "Posted correction, period lock/review, report supersession, backup/PITR/replay; integrity restored without duplication.",
+    "source_line": 688,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "DB-06",
+      "DB-08",
+      "E2E-06"
+    ],
+    "evidence_paths": [
+      "docs/verification/database-results.json",
+      "docs/verification/e2e-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-063",
+    "journey": "Locale / RTL / accessibility / offline",
+    "required_outcome": "Keyboard/screen-reader/mobile, Persian mixed USD text, calendar switch, lost connection/update; canonical facts unchanged.",
+    "source_line": 689,
+    "source_requirements": [],
+    "preconditions": [
+      "Synthetic provisioned book; current owner/viewer scope as specified by test."
+    ],
+    "steps": [
+      "Execute the linked named tests; consult user help for actual browser steps."
+    ],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [
+      "modules/ledger/src/domain/posting.ts",
+      "modules/ledger/src/infrastructure/postgres-ledger.ts",
+      "database/migrations/001_kernel.sql",
+      "database/migrations/002_posting_templates.sql",
+      "apps/web/components/dashboard.tsx",
+      "apps/web/app/api/[...path]/route.ts"
+    ],
+    "test_ids": [
+      "UNIT-05",
+      "E2E-03"
+    ],
+    "evidence_paths": [
+      "docs/verification/e2e-results.json",
+      "docs/verification/unit-results.json"
+    ],
+    "status": "designed",
+    "scope_note": "Partial scenario-family coverage. Unexercised variants and all remaining source outcomes remain pending."
+  },
+  {
+    "scenario_id": "SCN-064",
+    "journey": "Privacy/consent/account lifecycle",
+    "required_outcome": "Connect/revoke provider, malicious file/AI instruction, portable export/deletion/hold; secure audit and minimized retained data.",
+    "source_line": 690,
+    "source_requirements": [],
+    "preconditions": [],
+    "steps": [],
+    "variants": [
+      "success",
+      "denied_permission",
+      "duplicate_submit",
+      "timeout_after_commit"
+    ],
+    "implementation_paths": [],
+    "test_ids": [],
+    "evidence_paths": [],
+    "status": "specified"
+  }
+]

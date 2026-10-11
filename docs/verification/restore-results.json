@@ -1,0 +1,97 @@
+{
+  "startedAt": "2026-10-11T07:50:04.489Z",
+  "finishedAt": "2026-10-11T07:50:05.613Z",
+  "postgresMajor": 17,
+  "method": "pg_dump exported snapshot / pg_restore into isolated temporary database",
+  "passed": true,
+  "checks": [
+    "all 15 table row fingerprints match",
+    "restored runtime role observes RLS",
+    "restored posted journals remain sealed",
+    "frozen snapshot checksum and cash reconcile",
+    "new reviewed posting and retry have one effect",
+    "committed receipt can be recovered"
+  ],
+  "fingerprints": [
+    {
+      "table": "identity.principals",
+      "rows": 43,
+      "sha256": "a6eea711ef7d71d37d18c043c568e661f7518e8b2172d04e6f49164067fc435b"
+    },
+    {
+      "table": "workspace.workspaces",
+      "rows": 30,
+      "sha256": "b2cfb148fccbb89bfbbfda028d4d0799b1a572e923b05ff0edc61e32d75ce0d9"
+    },
+    {
+      "table": "workspace.entities",
+      "rows": 30,
+      "sha256": "de369a9366840bf092ec5434eaafe25107ad2c5a0e2ace03d12cbeb2996ff5a3"
+    },
+    {
+      "table": "workspace.grants",
+      "rows": 44,
+      "sha256": "35e2d19e5aa33a0cd48a5949aedbde83c9ce1925bbff65a52e8e5904e13f69f6"
+    },
+    {
+      "table": "ledger.accounts",
+      "rows": 182,
+      "sha256": "bb2bcd2202805fdce0757aa7207b8998d8fbf5edd5014b2766762f7658177cc2"
+    },
+    {
+      "table": "ledger.journals",
+      "rows": 195,
+      "sha256": "d864a2ec48d3c7ed4e3decb6af18f7e4cc42ce1174d2fb87e74d36e23a6dac95"
+    },
+    {
+      "table": "ledger.postings",
+      "rows": 390,
+      "sha256": "c0adcd0d6b11db75af39ffe622ae3ddb272f97712bba523b41d315953f8d322f"
+    },
+    {
+      "table": "ledger.closed_periods",
+      "rows": 14,
+      "sha256": "a8115c2042436547ccc87ca3213675e79d9c6663b82fc6a1f51c5ca903c32be8"
+    },
+    {
+      "table": "ledger.command_drafts",
+      "rows": 73,
+      "sha256": "8e8f12b39db99617ac104a7dd4916ae710608e0f3a81e2b35d78461ef73cb10f"
+    },
+    {
+      "table": "audit.events",
+      "rows": 287,
+      "sha256": "5275f79e0fc97cdf285d4d27fed5de4c960cb1df1a1e59bdc682e58f1ae09b32"
+    },
+    {
+      "table": "audit.idempotency",
+      "rows": 261,
+      "sha256": "cbc0fa89c84fabfe1e9df4d3d7110e20b3ad992927448b0c810e676ca0d48bc6"
+    },
+    {
+      "table": "audit.outbox",
+      "rows": 195,
+      "sha256": "c1ce5561b802b59cbef60b3bf8f38c7cf2779821e3ef52e1ae7d3d66b495c390"
+    },
+    {
+      "table": "audit.inbox",
+      "rows": 195,
+      "sha256": "b9c563c468f883661aea7896c15110f459476f18996858ad4722a4a73d16ac63"
+    },
+    {
+      "table": "audit.checkpoints",
+      "rows": 21,
+      "sha256": "4b711e2e7cc8b39171687a3c4f4d00ed62133f8a4f7ded95d7c59673352795b5"
+    },
+    {
+      "table": "reporting.snapshots",
+      "rows": 62,
+      "sha256": "f89b7b75b6fef8473a236fbd0e50ecbe625f20f9bd57916db778829d00f2c6c5"
+    }
+  ],
+  "limitations": [
+    "Local logical restore only; no encrypted remote backup, PITR, failover or measured production RPO/RTO.",
+    "Same PostgreSQL cluster and preexisting roles; cluster role restoration is not exercised.",
+    "No object storage documents exist in this slice."
+  ]
+}

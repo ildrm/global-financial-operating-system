@@ -1,0 +1,64 @@
+{
+  "version": "0.1.0",
+  "provenance": "Hand-calculated synthetic expectations from source examples and explicit posting policy; no independent professional signature.",
+  "reference_book": {
+    "currency": "EUR",
+    "opening_bank": "4470.00",
+    "opening_cash": "30.00",
+    "income": "3000.00",
+    "groceries": "61.40",
+    "closing_bank": "7408.60",
+    "closing_cash_account": "30.00",
+    "closing_cash_total": "7438.60",
+    "closing_card": "0.00"
+  },
+  "cash_bridge": {
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "opening_before_period": "0.00",
+    "opening_adjustments_in_period": "4500.00",
+    "income_receipts": "3000.00",
+    "consumption_cash": "-61.40",
+    "net_movement": "7438.60",
+    "closing": "7438.60"
+  },
+  "distinctions": {
+    "borrowed_principal": "10000.00",
+    "borrowed_income": "0.00",
+    "card_purchase": "80.00",
+    "card_settlement_additional_expense": "0.00",
+    "own_transfer_cash_change": "0.00"
+  },
+  "allocation": {
+    "total": "0.05",
+    "weights": [
+      "1",
+      "1",
+      "1"
+    ],
+    "expected": [
+      "0.02",
+      "0.02",
+      "0.01"
+    ]
+  },
+  "economic_math": {
+    "price_per_kg_500g": "4.000000000000",
+    "price_per_kg_400g": "5.000000000000",
+    "real_growth_10pct_inflation15pct": "-0.043478260870"
+  },
+  "deferred_purchase_case": {
+    "paid": "80.00",
+    "credit": "20.00",
+    "refund": "20.00",
+    "net_consumption": "60.00",
+    "implemented": false
+  },
+  "large_aggregate": {
+    "individual_input": "99999999999999999999999999.99",
+    "opening": "4470.00",
+    "calculated_balance": "100000000000000000000004469.99",
+    "input_integer_limit": 26,
+    "result_integer_limit": 38
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "recordedAt": "2026-10-11",
+  "context": "Failed loaded development browser run; not a production benchmark",
+  "reportHttpStatus": 201,
+  "reportResponseMs": 4761.329,
+  "uiAssertionWindowMs": 5000,
+  "conclusion": "Await the issued response and preserve all financial/render/export assertions; proposed production SLA remains unverified."
+}

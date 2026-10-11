@@ -1,0 +1,63 @@
+{
+  "name": "gfos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=24 <27"
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "vitest run",
+    "test:db": "vitest run --config vitest.db.config.ts",
+    "test:e2e": "playwright test",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "scope:check": "python3 scripts/extract-scope.py --check",
+    "architecture:check": "node --import tsx scripts/check-architecture.ts",
+    "verify": "pnpm scope:check && pnpm architecture:check && pnpm typecheck && pnpm test",
+    "env:init": "node --import tsx scripts/init-env.ts",
+    "dev:bootstrap": "node --import tsx scripts/bootstrap.ts",
+    "test:restore": "node --import tsx scripts/restore-drill.ts",
+    "scope:release-check": "node --import tsx scripts/check-release.ts",
+    "security:client-secrets": "node --import tsx scripts/check-client-secrets.ts",
+    "ci:verify": "node --import tsx scripts/ci-verify.ts",
+    "test:bootstrap": "node --import tsx scripts/bootstrap-drill.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "26.6.5",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "fast-check": "4.10.2",
+    "tsx": "4.23.15",
+    "turbo": "2.11.7",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3"
+  },
+  "dependencies": {
+    "@nestjs/common": "12.1.2",
+    "@nestjs/core": "12.1.2",
+    "@nestjs/platform-express": "12.1.2",
+    "@nestjs/swagger": "12.0.2",
+    "@opentelemetry/api": "1.9.1",
+    "decimal.js": "10.6.0",
+    "drizzle-orm": "0.45.4",
+    "jose": "6.2.12",
+    "lucide-react": "1.54.0",
+    "next": "16.4.0",
+    "openid-client": "6.8.8",
+    "pg": "8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "recharts": "3.10.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "zod": "4.6.5"
+  }
+}

@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.base.json","compilerOptions":{"experimentalDecorators":true,"emitDecoratorMetadata":true},"include":["scripts","tests","vitest*.ts","playwright.config.ts"]}

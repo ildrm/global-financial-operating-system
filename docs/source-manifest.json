@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "document": "product",
+      "filename": "GFOS_Super_Mega_Product_Specification.md",
+      "path": "docs/sources/GFOS_Super_Mega_Product_Specification.md",
+      "sha256": "55b2d425b84687ef7655ecab9559373314cbd370f7558469500db2c370f25a81",
+      "version": "1.0.0",
+      "line_count": 2174
+    },
+    {
+      "document": "architecture",
+      "filename": "GFOS_Super_Mega_Implementation_Architecture.md",
+      "path": "docs/sources/GFOS_Super_Mega_Implementation_Architecture.md",
+      "sha256": "47c52f399c2f99d3e9fbd28543370373ce8a16a434c0d512ce14ef5854e2cedf",
+      "version": "1.0.0",
+      "line_count": 2585
+    },
+    {
+      "document": "execution",
+      "filename": "GFOS_Roles_and_Super_Mega_Implementation_Prompt_GPT_6_1_Sol_XHigh.md",
+      "path": "docs/sources/GFOS_Roles_and_Super_Mega_Implementation_Prompt_GPT_6_1_Sol_XHigh.md",
+      "sha256": "141a698d92e93341c515aceb627c5d06ef019d70d3aa1f1c75df15e2fca226f2",
+      "version": "1.0.0",
+      "line_count": 1523
+    }
+  ],
+  "counts": {
+    "explicit_requirements": 273,
+    "reports": 122,
+    "invariants": 18,
+    "derived_blocks": 806,
+    "roles": 42,
+    "scenario_families": 64,
+    "sections": {
+      "product": 48,
+      "architecture": 44,
+      "execution": 15
+    }
+  },
+  "note": "Derived source blocks preserve full scope; semantic decomposition and ownership review remain pending."
+}

@@ -1,0 +1,1 @@
+{"globalDependencies":[".env"],"tasks":{"build":{"dependsOn":["^build"],"outputs":["dist/**",".next-production/**","!.next-production/cache/**"]},"@gfos/api#build":{"dependsOn":["^build"],"outputs":[]},"@gfos/worker#build":{"dependsOn":["^build"],"outputs":[]},"typecheck":{"dependsOn":["^typecheck"],"outputs":[]},"dev":{"cache":false,"persistent":true}}}

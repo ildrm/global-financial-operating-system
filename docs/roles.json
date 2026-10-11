@@ -1,0 +1,254 @@
+[
+  {
+    "role_id": "ROLE-01",
+    "specialty": "Product owner / product manager",
+    "responsibilities": "Own personas, full scope, feature priorities, manual versus verified modes, success measures, and release acceptance. Resolve business choices without sacrificing invariants.",
+    "required_outputs": "Product acceptance criteria, capability matrix, approved scope changes, milestone decisions."
+  },
+  {
+    "role_id": "ROLE-02",
+    "specialty": "Business and systems analyst",
+    "responsibilities": "Extract numbered and unnumbered requirements; define actors, business events, exceptions, inputs, outputs, states, and cross-domain dependencies. Reconcile source conflicts.",
+    "required_outputs": "Requirements registry, source map, use cases, transition matrices, traceability."
+  },
+  {
+    "role_id": "ROLE-03",
+    "specialty": "Technical delivery manager",
+    "responsibilities": "Sequence complete slices; track dependencies, risks, evidence, external blockers, and session checkpoints. Prevent premature “complete” claims.",
+    "required_outputs": "Delivery plan, dependency graph, progress register, blocker owners, handoff."
+  },
+  {
+    "role_id": "ROLE-04",
+    "specialty": "Principal software architect",
+    "responsibilities": "Own modular monolith, module boundaries, ports, transaction orchestration, ADRs, consistency model, and future extraction criteria.",
+    "required_outputs": "Architecture diagrams, boundary tests, ADRs, cross-module contracts."
+  },
+  {
+    "role_id": "ROLE-05",
+    "specialty": "Accounting SME / controller",
+    "responsibilities": "Define chart of accounts, recognition policies, cash/accrual views, posting templates, closing, reversals, trial balance, consolidations, and reconciliation.",
+    "required_outputs": "Accounting policy, independently checked journals, close/reopen controls, reconciliation cases."
+  },
+  {
+    "role_id": "ROLE-06",
+    "specialty": "Financial mathematics engineer",
+    "responsibilities": "Implement exact money, units, rates, rounding, allocations, amortization, FX, discounted cash flows, returns, and explicit undefined cases.",
+    "required_outputs": "Pure calculation libraries, precision contracts, golden/property tests."
+  },
+  {
+    "role_id": "ROLE-07",
+    "specialty": "Banking, treasury, and debt SME",
+    "responsibilities": "Define statement semantics, card cycles, cleared/available balances, loans, fees, day counts, rate resets, prepayments, creditor/debtor views, and liquidity.",
+    "required_outputs": "Contract schemas, loan schedules, statement matching rules, cash-flow definitions."
+  },
+  {
+    "role_id": "ROLE-08",
+    "specialty": "Investment and asset accounting SME",
+    "responsibilities": "Define instruments, lots, corporate actions, fees, holding reconciliation, asset valuations, metals, property, cost basis, TWR/MWR, and liquidity.",
+    "required_outputs": "Lot and valuation policies, corporate-action cases, investment report checks."
+  },
+  {
+    "role_id": "ROLE-09",
+    "specialty": "Digital-asset domain engineer",
+    "responsibilities": "Define network/contract identity, token precision, read-only custody, self-transfers, gas, staking, bridging, DeFi events, reorgs, and incomplete basis.",
+    "required_outputs": "Token registry, activity mappings, chain reconciliation and reorg tests."
+  },
+  {
+    "role_id": "ROLE-10",
+    "specialty": "Shared-capital and ownership SME",
+    "responsibilities": "Define agreements, contributions, beneficial shares, distribution/loss rules, debt responsibility, approvals, departure, disputes, and eliminations.",
+    "required_outputs": "Effective-dated ownership models, member statements, exit and consolidation cases."
+  },
+  {
+    "role_id": "ROLE-11",
+    "specialty": "Household and living-cost domain analyst",
+    "responsibilities": "Cover goods, food, inventory, housing, mobility, dependents, education, healthcare finances, insurance, travel, giving, emergencies, and dynamic attributes.",
+    "required_outputs": "Domain schemas, expense templates, realistic journeys, privacy-minimized profiles."
+  },
+  {
+    "role_id": "ROLE-12",
+    "specialty": "Utility and tariff domain engineer",
+    "responsibilities": "Define meters, energy/volume units, marginal/all-units tiers, time-of-use, demand, taxes, subsidies, tariff revisions, and invoice discrepancies.",
+    "required_outputs": "Tariff contracts, traceable bill estimates, independent billing vectors."
+  },
+  {
+    "role_id": "ROLE-13",
+    "specialty": "Payroll and employment SME",
+    "responsibilities": "Define employee/contractor distinctions, compensation, time/leave, gross-to-net, employer costs, cutoff transitions, approvals, finalization, correction, and payslips.",
+    "required_outputs": "Payroll pipeline, worker privacy policies, local validation cases, adjustment workflows."
+  },
+  {
+    "role_id": "ROLE-14",
+    "specialty": "Local tax and regulatory counsel",
+    "responsibilities": "Establish service perimeter, applicable jurisdictions, residence/treaties, tax/benefit interpretations, effective dates, lawful filing/payment scope, and local approval.",
+    "required_outputs": "Qualified source review, verified coverage, signed pack decisions, legal limitations."
+  },
+  {
+    "role_id": "ROLE-15",
+    "specialty": "Privacy and data-protection specialist",
+    "responsibilities": "Define purpose/consent, minimization, restricted payroll/health records, data residency, portability, deletion, retention holds, and collaborator boundaries.",
+    "required_outputs": "Data classification/retention map, privacy assessment, consent and deletion tests."
+  },
+  {
+    "role_id": "ROLE-16",
+    "specialty": "Financial economist / price-index specialist",
+    "responsibilities": "Define CPI, personal baskets, comparable products, weights, price/quantity effects, deflators, PPP, real income, and purchasing-power interpretation.",
+    "required_outputs": "Economic-method specification, coverage rules, index/PPP validation."
+  },
+  {
+    "role_id": "ROLE-17",
+    "specialty": "Statistician / forecasting specialist",
+    "responsibilities": "Validate time-series methods, missingness, uncertainty, simulations, calibration, dependencies, seeds, backtesting, and financial-health claims.",
+    "required_outputs": "Model cards, forecast validation, uncertainty and drift policies."
+  },
+  {
+    "role_id": "ROLE-18",
+    "specialty": "Data engineer / provenance specialist",
+    "responsibilities": "Implement provider registries, ingestion, raw staging, series identity, publication vintages, revisions, licensing, freshness, validation, and lineage.",
+    "required_outputs": "Provider adapters, data dictionaries, revision/gap tests, source activation evidence."
+  },
+  {
+    "role_id": "ROLE-19",
+    "specialty": "Analytics and semantic-layer engineer",
+    "responsibilities": "Define canonical metrics, grains, dimensions, aggregation, denominators, permission scopes, reconciliations, and projection watermarks. Prevent join fan-out.",
+    "required_outputs": "Metric registry, tested queries, grain rules, anti-double-count evidence."
+  },
+  {
+    "role_id": "ROLE-20",
+    "specialty": "Reporting and BI engineer",
+    "responsibilities": "Implement all 122 report definitions, report builder, layouts, snapshots, drill-through, filters, comparison, exports, sharing, schedules, and cancellations.",
+    "required_outputs": "Report manifest, fixtures, rendered examples, export parity and authorization tests."
+  },
+  {
+    "role_id": "ROLE-21",
+    "specialty": "UX researcher",
+    "responsibilities": "Investigate user goals and confusion around balances, expense recognition, debt, shared privacy, inflation, and corrections; test realistic tasks.",
+    "required_outputs": "Research plan, evidence log, task success/errors, usability findings. Mark unrun research as planned."
+  },
+  {
+    "role_id": "ROLE-22",
+    "specialty": "Product designer / information architect",
+    "responsibilities": "Design navigation, mode selection, progressive disclosure, onboarding, entry flows, reviews, exceptions, search, approvals, and report exploration.",
+    "required_outputs": "Journey maps, wireframes, screen contracts, interaction prototypes, task acceptance."
+  },
+  {
+    "role_id": "ROLE-23",
+    "specialty": "UI designer / design-system engineer",
+    "responsibilities": "Own coherent visual identity, typography, spacing, density, hierarchy, responsive layouts, tokens, financial tables/charts, themes, and component states.",
+    "required_outputs": "Design tokens, component catalog, responsive visual review, polished final screens."
+  },
+  {
+    "role_id": "ROLE-24",
+    "specialty": "Accessibility specialist",
+    "responsibilities": "Own WCAG 2.2 AA target, keyboard/focus, screen readers, semantic tables, charts, motion, touch, contrast, zoom, and accessible validation.",
+    "required_outputs": "Automated findings plus manual workflow checks, accessible alternatives, remediation."
+  },
+  {
+    "role_id": "ROLE-25",
+    "specialty": "Localization and internationalization specialist",
+    "responsibilities": "Own all 12 language families, requested variants, terminology, ICU/plurals, bidi, calendars, money input, exports, notifications, and translation review.",
+    "required_outputs": "Locale glossary/catalogs, RTL samples, calendar/input fixtures, review status."
+  },
+  {
+    "role_id": "ROLE-26",
+    "specialty": "Frontend lead / Next.js engineer",
+    "responsibilities": "Implement routes, server/client boundaries, secure fetching, state, forms, tables/charts, reusable components, workspace switching, and UI tests.",
+    "required_outputs": "Functional responsive UI, typed clients, cache isolation, visual and E2E evidence."
+  },
+  {
+    "role_id": "ROLE-27",
+    "specialty": "Backend lead / NestJS engineer",
+    "responsibilities": "Implement validated commands, queries, domain services, ports, policies, ACID orchestration, APIs, outbox, workers, and error recovery.",
+    "required_outputs": "Working APIs/workers, OpenAPI, state guards, contract/integration tests."
+  },
+  {
+    "role_id": "ROLE-28",
+    "specialty": "Database engineer / DBA",
+    "responsibilities": "Own schemas, composite keys, balance constraints, immutability, RLS/privileges, locks, indexes, migrations, recovery correctness, and data capacity.",
+    "required_outputs": "Executable SQL migrations, privilege tests, query plans, restore/migration evidence."
+  },
+  {
+    "role_id": "ROLE-29",
+    "specialty": "Integration and reconciliation engineer",
+    "responsibilities": "Implement file/bank/market/chain imports, capability negotiation, consent, webhooks, pending-to-cleared mapping, dedup, exception queues, and disconnects.",
+    "required_outputs": "Connector matrix, staged import UI, sandbox contracts, replay/reconciliation evidence."
+  },
+  {
+    "role_id": "ROLE-30",
+    "specialty": "Identity and authorization engineer",
+    "responsibilities": "Own OIDC/passkeys/MFA, sessions, recovery, step-up, RBAC/ABAC, delegated access, expiry, revocation, and resource/field-level policy.",
+    "required_outputs": "Permission matrix, policy service, cross-tenant/nested-object/export negative tests."
+  },
+  {
+    "role_id": "ROLE-31",
+    "specialty": "Security architect / application security engineer",
+    "responsibilities": "Threat-model boundaries; prevent injection, XSS/CSRF/SSRF, token leaks, malicious uploads, supply-chain attacks, and privileged workflow abuse.",
+    "required_outputs": "Threat model, security controls, ASVS mapping, scan/pentest findings and remediation."
+  },
+  {
+    "role_id": "ROLE-32",
+    "specialty": "AI/ML and AI-safety engineer",
+    "responsibilities": "Keep extraction/categorization/explanation advisory; enforce tool-scoped calculations, authorization, input provenance, injection isolation, and privacy controls.",
+    "required_outputs": "AI contracts/evals, review-only drafts, refusal/fallback cases, provider governance."
+  },
+  {
+    "role_id": "ROLE-33",
+    "specialty": "PWA and client-storage engineer",
+    "responsibilities": "Implement installation, static-shell caching, update/recovery UX, secure logout purge, optional encrypted drafts, and offline/conflict states.",
+    "required_outputs": "PWA manifest/worker, cache policy, offline/update/purge tests."
+  },
+  {
+    "role_id": "ROLE-34",
+    "specialty": "QA lead / acceptance engineer",
+    "responsibilities": "Own risk-based test strategy, scope completeness, scenario variations, regression gates, defect triage, and release evidence.",
+    "required_outputs": "Test plan, traceability audit, acceptance report, unresolved defect register."
+  },
+  {
+    "role_id": "ROLE-35",
+    "specialty": "Test-automation engineer",
+    "responsibilities": "Implement deterministic golden, property, real-DB, API, worker, E2E, accessibility, localization, export, fault, and replay suites.",
+    "required_outputs": "Executable CI suites, stable fixtures, failure artifacts, reproducible commands."
+  },
+  {
+    "role_id": "ROLE-36",
+    "specialty": "Independent financial validation reviewer",
+    "responsibilities": "Independently reproduce money, journals, debt, inflation, ownership, payroll, and reporting results; distinguish professional verification from model self-review.",
+    "required_outputs": "Independent expected vectors, review records, unresolved discrepancies."
+  },
+  {
+    "role_id": "ROLE-37",
+    "specialty": "Performance and capacity engineer",
+    "responsibilities": "Define workloads and hardware; benchmark posting, reporting, concurrency, UI responsiveness, queue lag, memory, and query plans.",
+    "required_outputs": "Load profiles, measured p95/p99, capacity limits, performance fixes."
+  },
+  {
+    "role_id": "ROLE-38",
+    "specialty": "DevOps, supply-chain, and release engineer",
+    "responsibilities": "Build reproducible containers/CI, configuration/secrets, SBOM/scans, migrations, staging, version compatibility, artifact signing, and controlled promotion.",
+    "required_outputs": "Docker startup, CI evidence, deployment/rollback procedures, build provenance."
+  },
+  {
+    "role_id": "ROLE-39",
+    "specialty": "SRE / disaster-recovery engineer",
+    "responsibilities": "Own telemetry, financial integrity monitors, freshness, incidents, recovery objectives, backup/PITR drills, queue replay, and operational reconciliation.",
+    "required_outputs": "SLO measurements, dashboards, runbooks, actual restore/replay evidence."
+  },
+  {
+    "role_id": "ROLE-40",
+    "specialty": "Country-pack and configuration steward",
+    "responsibilities": "Maintain official sources, reviews, typed parameters, activation, expiry, change impact, rollback, locality/tariff coverage, and support status.",
+    "required_outputs": "Pack lifecycle, reviewer records, source/test ledger, support matrix, expiry alerts."
+  },
+  {
+    "role_id": "ROLE-41",
+    "specialty": "Technical writer / support-enablement engineer",
+    "responsibilities": "Explain financial definitions, workflows, warnings, reports, APIs, self-hosting, corrections, and support incidents without exposing protected data.",
+    "required_outputs": "User help, methodology pages, developer/runbook docs, support diagnostics."
+  },
+  {
+    "role_id": "ROLE-42",
+    "specialty": "Prompt and execution-context engineer",
+    "responsibilities": "Keep instructions unambiguous; maintain structured tasks, source hashes, checkpoints, evidence, drift checks, and honest completion classifications.",
+    "required_outputs": "Execution charter, checkpoint schema, coverage checker, resumable handoff."
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "advisories": {},
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 178,
+    "devDependencies": 105,
+    "optionalDependencies": 112,
+    "totalDependencies": 336
+  },
+  "recordedAt": "2026-10-11",
+  "scope": "pnpm dependency audit at this verification time; not a full security assessment"
+}

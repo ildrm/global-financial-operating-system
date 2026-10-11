@@ -1,0 +1,114 @@
+name: gfos
+x-app: &app
+  build:
+    context: .
+    dockerfile: infra/docker/app.Dockerfile
+  image: gfos-development:0.1.0
+  init: true
+  security_opt: ["no-new-privileges:true"]
+  mem_limit: 1g
+  pids_limit: 256
+x-common: &common
+  NODE_ENV: development
+  GFOS_DEMO: "true"
+  DATABASE_URL: postgresql://gfos_runtime:${GFOS_RUNTIME_PASSWORD:?run env:init}@postgres:5432/gfos
+  WORKER_DATABASE_URL: postgresql://gfos_background:${GFOS_WORKER_PASSWORD:?run env:init}@postgres:5432/gfos
+services:
+  postgres:
+    image: postgres:17.11-bookworm
+    environment:
+      POSTGRES_DB: gfos
+      POSTGRES_USER: gfos_migrator
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run env:init}
+    ports: ["127.0.0.1:55432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gfos_migrator -d gfos"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    mem_limit: 1g
+  redis:
+    image: redis:8.10.2-alpine3.23
+    command: ["redis-server","--appendonly","yes"]
+    volumes: ["redisdata:/data"]
+    healthcheck:
+      test: ["CMD","redis-cli","ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    mem_limit: 256m
+  bootstrap:
+    <<: *app
+    command: ["node","--import","tsx","scripts/bootstrap.ts"]
+    environment:
+      <<: *common
+      MIGRATION_DATABASE_URL: postgresql://gfos_migrator:${POSTGRES_PASSWORD:?run env:init}@postgres:5432/gfos
+      GFOS_RUNTIME_PASSWORD: ${GFOS_RUNTIME_PASSWORD:?run env:init}
+      GFOS_WORKER_PASSWORD: ${GFOS_WORKER_PASSWORD:?run env:init}
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    <<: *app
+    command: ["pnpm","--filter","@gfos/api","start"]
+    environment:
+      <<: *common
+      API_HOST: 0.0.0.0
+      API_PORT: "4000"
+      DEMO_API_TOKEN: ${DEMO_API_TOKEN:?run env:init}
+    ports: ["127.0.0.1:4000:4000"]
+    read_only: true
+    tmpfs: ["/tmp"]
+    depends_on:
+      bootstrap: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD","node","-e","fetch('http://localhost:4000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  worker:
+    <<: *app
+    command: ["pnpm","--filter","@gfos/worker","start"]
+    environment:
+      <<: *common
+    read_only: true
+    tmpfs: ["/tmp"]
+    depends_on:
+      bootstrap: {condition: service_completed_successfully}
+  web:
+    <<: *app
+    command: ["pnpm","--filter","@gfos/web","exec","next","dev","--hostname","0.0.0.0"]
+    environment:
+      NODE_ENV: development
+      GFOS_DEMO: "true"
+      API_INTERNAL_URL: http://api:4000
+      DEMO_API_TOKEN: ${DEMO_API_TOKEN:?run env:init}
+      SESSION_SECRET: ${SESSION_SECRET:?run env:init}
+      WEB_ORIGIN: http://localhost:3000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD","node","-e","fetch('http://localhost:3000/en').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+  storage:
+    image: dxflrs/garage:v2.4.1
+    profiles: ["documents"]
+    user: "1000:1000"
+    command: ["/garage","server","--single-node","--default-bucket"]
+    environment:
+      GARAGE_DEFAULT_ACCESS_KEY: ${GARAGE_DEFAULT_ACCESS_KEY:?run env:init}
+      GARAGE_DEFAULT_SECRET_KEY: ${GARAGE_DEFAULT_SECRET_KEY:?run env:init}
+      GARAGE_DEFAULT_BUCKET: gfos-documents
+    volumes:
+      - ./.local-data/garage.toml:/etc/garage.toml:ro
+      - garagedata:/var/lib/garage
+    ports: ["127.0.0.1:3900:3900"]
+    mem_limit: 512m
+volumes:
+  pgdata: {}
+  redisdata: {}
+  garagedata: {}
+

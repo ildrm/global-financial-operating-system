@@ -1,0 +1,1877 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/entities": {
+      "get": {
+        "operationId": "listEntities",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Entity"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "",
+        "tags": [
+          "Finance"
+        ]
+      }
+    },
+    "/api/v1/overview": {
+      "get": {
+        "operationId": "getOverview",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "entityId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Overview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ]
+      }
+    },
+    "/api/v1/transactions/preview": {
+      "post": {
+        "operationId": "previewTransaction",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Preview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialCommand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/operations/{key}": {
+      "get": {
+        "operationId": "recoverOperation",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "entityId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recovery"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ]
+      }
+    },
+    "/api/v1/operations/draft": {
+      "post": {
+        "operationId": "prepareOperation",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DraftKey"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OperationDraft"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transactions": {
+      "post": {
+        "operationId": "postReviewedTransaction",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Scoped stable key; retry exact inputs after an uncertain response."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialCommand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/accounts": {
+      "post": {
+        "operationId": "createAccount",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Scoped stable key; retry exact inputs after an uncertain response."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountCommand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/journals/{id}/reverse": {
+      "post": {
+        "operationId": "reverseJournal",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Scoped stable key; retry exact inputs after an uncertain response."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseCommand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reports": {
+      "post": {
+        "operationId": "generateReport",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSnapshot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reports/{id}": {
+      "get": {
+        "operationId": "getReportSnapshot",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Validated financial result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSnapshot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "401": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "404": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "409": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "422": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          },
+          "500": {
+            "description": "Problem document: code, detail and status. No financial partial commit."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Finance"
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "HealthController_health",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Health"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "GFOS financial kernel",
+    "description": "",
+    "version": "0.1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "FinancialCommand": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "income",
+              "expense",
+              "transfer",
+              "borrowing",
+              "card_payment"
+            ]
+          },
+          "amount": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "EUR",
+              "USD",
+              "GBP",
+              "TRY",
+              "INR",
+              "IRR",
+              "JPY",
+              "BHD"
+            ]
+          },
+          "effectiveDate": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "accountId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "otherAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "sourceReference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "entityId",
+          "expectedVersion",
+          "kind",
+          "amount",
+          "currency",
+          "effectiveDate",
+          "description",
+          "accountId"
+        ],
+        "additionalProperties": false
+      },
+      "AccountCommand": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "bank",
+              "cash",
+              "card",
+              "loan"
+            ]
+          },
+          "openingAmount": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+          },
+          "openedOn": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "required": [
+          "entityId",
+          "expectedVersion",
+          "name",
+          "kind",
+          "openingAmount",
+          "openedOn"
+        ],
+        "additionalProperties": false
+      },
+      "ReverseCommand": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "effectiveDate": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "entityId",
+          "expectedVersion",
+          "effectiveDate",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "OperationDraft": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "account"
+                ]
+              },
+              "command": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "bank",
+                      "cash",
+                      "card",
+                      "loan"
+                    ]
+                  },
+                  "openingAmount": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                  },
+                  "openedOn": {
+                    "type": "string",
+                    "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "expectedVersion",
+                  "name",
+                  "kind",
+                  "openingAmount",
+                  "openedOn"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "operation",
+              "command"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "reverse"
+                ]
+              },
+              "journalId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "command": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "effectiveDate": {
+                    "type": "string",
+                    "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 160
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "expectedVersion",
+                  "effectiveDate",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "operation",
+              "journalId",
+              "command"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DraftKey": {
+        "type": "object",
+        "properties": {
+          "draftKey": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "draftKey"
+        ],
+        "additionalProperties": false
+      },
+      "ReportRequest": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reportId": {
+            "type": "string",
+            "enum": [
+              "R-D02",
+              "R-D01"
+            ]
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "required": [
+          "entityId",
+          "reportId",
+          "from",
+          "to"
+        ],
+        "additionalProperties": false
+      },
+      "Entity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "workspaceId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "workspaceName": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "EUR",
+              "USD",
+              "GBP",
+              "TRY",
+              "INR",
+              "IRR",
+              "JPY",
+              "BHD"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "owner",
+              "viewer"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "workspaceId",
+          "name",
+          "workspaceName",
+          "currency",
+          "version",
+          "synthetic",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "Overview": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "workspaceId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "workspaceName": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string",
+                "enum": [
+                  "EUR",
+                  "USD",
+                  "GBP",
+                  "TRY",
+                  "INR",
+                  "IRR",
+                  "JPY",
+                  "BHD"
+                ]
+              },
+              "version": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "synthetic": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "owner",
+                  "viewer"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "workspaceId",
+              "name",
+              "workspaceName",
+              "currency",
+              "version",
+              "synthetic",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "accounts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "EUR",
+                    "USD",
+                    "GBP",
+                    "TRY",
+                    "INR",
+                    "IRR",
+                    "JPY",
+                    "BHD"
+                  ]
+                },
+                "balance": {
+                  "type": "string",
+                  "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+                },
+                "openedOn": {
+                  "type": "string",
+                  "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "kind",
+                "currency",
+                "balance",
+                "openedOn"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "journals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "effectiveDate": {
+                  "type": "string",
+                  "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "recordedAt": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string",
+                  "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "EUR",
+                    "USD",
+                    "GBP",
+                    "TRY",
+                    "INR",
+                    "IRR",
+                    "JPY",
+                    "BHD"
+                  ]
+                },
+                "reversalOf": {
+                  "nullable": true,
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "reversedBy": {
+                  "nullable": true,
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "accountId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "accountName": {
+                        "type": "string"
+                      },
+                      "side": {
+                        "type": "string",
+                        "enum": [
+                          "debit",
+                          "credit"
+                        ]
+                      },
+                      "amount": {
+                        "type": "string",
+                        "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "EUR",
+                          "USD",
+                          "GBP",
+                          "TRY",
+                          "INR",
+                          "IRR",
+                          "JPY",
+                          "BHD"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "accountId",
+                      "accountName",
+                      "side",
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "effectiveDate",
+                "recordedAt",
+                "kind",
+                "description",
+                "amount",
+                "currency",
+                "reversalOf",
+                "reversedBy",
+                "lines"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "cash": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+          },
+          "income": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+          },
+          "spending": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+          },
+          "cashSeries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "balance": {
+                  "type": "string",
+                  "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+                }
+              },
+              "required": [
+                "date",
+                "balance"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "quality": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "entered"
+                ]
+              },
+              "reconciliation": {
+                "type": "string",
+                "enum": [
+                  "unreconciled"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "enum": [
+                  "net-receipt"
+                ]
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "user-recorded-book-only"
+                ]
+              }
+            },
+            "required": [
+              "origin",
+              "reconciliation",
+              "basis",
+              "completeness"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "entity",
+          "accounts",
+          "journals",
+          "from",
+          "to",
+          "cash",
+          "income",
+          "spending",
+          "cashSeries",
+          "quality"
+        ],
+        "additionalProperties": false
+      },
+      "Preview": {
+        "type": "object",
+        "properties": {
+          "draftKey": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountName": {
+                  "type": "string"
+                },
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "debit",
+                    "credit"
+                  ]
+                },
+                "amount": {
+                  "type": "string",
+                  "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                }
+              },
+              "required": [
+                "accountName",
+                "side",
+                "amount"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "currentVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "draftKey",
+          "lines",
+          "currentVersion"
+        ],
+        "additionalProperties": false
+      },
+      "Recovery": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "committed"
+                ]
+              },
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "post",
+                  "account",
+                  "reverse"
+                ]
+              },
+              "receipt": {
+                "type": "object",
+                "properties": {
+                  "journalId": {
+                    "nullable": true,
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "accountId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "entityVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "projectionStatus": {
+                    "type": "string",
+                    "enum": [
+                      "authoritative"
+                    ]
+                  },
+                  "replayed": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "journalId",
+                  "entityVersion",
+                  "projectionStatus"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state",
+              "operation",
+              "receipt"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft"
+                ]
+              },
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "post"
+                ]
+              },
+              "command": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "income",
+                      "expense",
+                      "transfer",
+                      "borrowing",
+                      "card_payment"
+                    ]
+                  },
+                  "amount": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "enum": [
+                      "EUR",
+                      "USD",
+                      "GBP",
+                      "TRY",
+                      "INR",
+                      "IRR",
+                      "JPY",
+                      "BHD"
+                    ]
+                  },
+                  "effectiveDate": {
+                    "type": "string",
+                    "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "accountId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "otherAccountId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "sourceReference": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "expectedVersion",
+                  "kind",
+                  "amount",
+                  "currency",
+                  "effectiveDate",
+                  "description",
+                  "accountId"
+                ],
+                "additionalProperties": false
+              },
+              "preview": {
+                "type": "object",
+                "properties": {
+                  "draftKey": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "lines": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "accountName": {
+                          "type": "string"
+                        },
+                        "side": {
+                          "type": "string",
+                          "enum": [
+                            "debit",
+                            "credit"
+                          ]
+                        },
+                        "amount": {
+                          "type": "string",
+                          "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                        }
+                      },
+                      "required": [
+                        "accountName",
+                        "side",
+                        "amount"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "currentVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": [
+                  "draftKey",
+                  "lines",
+                  "currentVersion"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state",
+              "operation",
+              "command",
+              "preview"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft"
+                ]
+              },
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "account"
+                ]
+              },
+              "command": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "bank",
+                      "cash",
+                      "card",
+                      "loan"
+                    ]
+                  },
+                  "openingAmount": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9]\\d{0,25})(\\.\\d{1,12})?$"
+                  },
+                  "openedOn": {
+                    "type": "string",
+                    "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "expectedVersion",
+                  "name",
+                  "kind",
+                  "openingAmount",
+                  "openedOn"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state",
+              "operation",
+              "command"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft"
+                ]
+              },
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "reverse"
+                ]
+              },
+              "journalId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "command": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "effectiveDate": {
+                    "type": "string",
+                    "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 160
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "expectedVersion",
+                  "effectiveDate",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state",
+              "operation",
+              "journalId",
+              "command"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CommandResult": {
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "accountId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "entityVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "projectionStatus": {
+            "type": "string",
+            "enum": [
+              "authoritative"
+            ]
+          },
+          "replayed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "journalId",
+          "entityVersion",
+          "projectionStatus"
+        ],
+        "additionalProperties": false
+      },
+      "ReportSnapshot": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reportId": {
+            "type": "string",
+            "enum": [
+              "R-D01",
+              "R-D02"
+            ]
+          },
+          "definitionVersion": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "EUR",
+              "USD",
+              "GBP",
+              "TRY",
+              "INR",
+              "IRR",
+              "JPY",
+              "BHD"
+            ]
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          "dataCutoff": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          "sourceJournalIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "totals": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9]\\d{0,37})(\\.\\d{1,12})?$"
+            }
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "quality": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "entered"
+                ]
+              },
+              "reconciliation": {
+                "type": "string",
+                "enum": [
+                  "unreconciled"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "enum": [
+                  "net-receipt"
+                ]
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "user-recorded-book-only"
+                ]
+              }
+            },
+            "required": [
+              "origin",
+              "reconciliation",
+              "basis",
+              "completeness"
+            ],
+            "additionalProperties": false
+          },
+          "methodology": {
+            "type": "string"
+          },
+          "actorId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id",
+          "reportId",
+          "definitionVersion",
+          "entityId",
+          "currency",
+          "from",
+          "to",
+          "generatedAt",
+          "dataCutoff",
+          "sourceJournalIds",
+          "columns",
+          "rows",
+          "totals",
+          "checksum",
+          "quality",
+          "methodology",
+          "actorId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

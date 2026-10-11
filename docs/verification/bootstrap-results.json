@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-10-11T07:04:11.941Z",
+  "finishedAt": "2026-10-11T07:04:33.419Z",
+  "passed": true,
+  "checks": [
+    "6 migrations applied to an empty database",
+    "two synthetic workspaces provisioned",
+    "three financial accounts and four balanced source journals",
+    "7438.60 cash / 3000.00 income / 61.40 spending",
+    "repeated bootstrap preserves exact journal fingerprints"
+  ],
+  "limitations": [
+    "Native PostgreSQL with preexisting restricted cluster roles.",
+    "Container image, empty-volume permissions and creation of cluster roles were not verified."
+  ]
+}

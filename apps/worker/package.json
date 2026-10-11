@@ -1,0 +1,1 @@
+{"name":"@gfos/worker","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"tsx watch src/main.ts","build":"tsc --noEmit","typecheck":"tsc --noEmit","start":"tsx src/main.ts"},"dependencies":{"@gfos/database":"workspace:*"}}
